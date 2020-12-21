@@ -41,6 +41,28 @@ function api_v1_login_create(action) {
 function api_v1_signup_create(action) {
   return mobiledecAPI.post(`/api/v1/signup/`, null, { data: action.data })
 }
+function api_v1_users_list(action) {
+  return mobiledecAPI.get(`/api/v1/users/`)
+}
+function api_v1_users_create(action) {
+  return mobiledecAPI.post(`/api/v1/users/`, null, { data: action.data })
+}
+function api_v1_users_read(action) {
+  return mobiledecAPI.get(`/api/v1/users/${action.id}/`)
+}
+function api_v1_users_update(action) {
+  return mobiledecAPI.put(`/api/v1/users/${action.id}/`, null, {
+    data: action.data
+  })
+}
+function api_v1_users_partial_update(action) {
+  return mobiledecAPI.patch(`/api/v1/users/${action.id}/`, null, {
+    data: action.data
+  })
+}
+function api_v1_users_delete(action) {
+  return mobiledecAPI.delete(`/api/v1/users/${action.id}/`)
+}
 function rest_auth_login_create(action) {
   return mobiledecAPI.post(`/rest-auth/login/`, null, { data: action.data })
 }
@@ -95,6 +117,12 @@ export const apiService = {
   api_v1_homepage_partial_update,
   api_v1_login_create,
   api_v1_signup_create,
+  api_v1_users_list,
+  api_v1_users_create,
+  api_v1_users_read,
+  api_v1_users_update,
+  api_v1_users_partial_update,
+  api_v1_users_delete,
   rest_auth_login_create,
   rest_auth_logout_list,
   rest_auth_logout_create,
